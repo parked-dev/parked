@@ -1,0 +1,29 @@
+{
+  "name": "parked",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix ui ci --no-audit --no-fund && npm --prefix ui run build",
+    "update": "git pull --ff-only && npm run build && npm run service:restart",
+    "start": "node web.js",
+    "dev": "npm --prefix ui run dev",
+    "test": "node --no-warnings --test \"*.test.js\" \"ui/src/**/*.test.ts\"",
+    "service:restart": "launchctl kickstart -k gui/$(id -u)/com.parked.dashboard 2>/dev/null || true"
+  },
+  "description": "Local dashboard for agent work paused on external dependencies (PR review, deploy, a teammate's reply), with one-click resume.",
+  "author": "Tiago Almeida",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parked-dev/parked.git"
+  },
+  "homepage": "https://github.com/parked-dev/parked",
+  "keywords": [
+    "agents",
+    "opencode",
+    "mcp",
+    "dashboard",
+    "todo"
+  ]
+}
