@@ -99,6 +99,10 @@ Nothing leaves your machine except `git` and `gh` calls you already make.
 
 ## Development
 
+See [docs/](docs/) for the [functional requirements](docs/requirements/functional.md), the
+[non-functional requirements](docs/requirements/non-functional.md) and the
+[architecture](docs/architecture.md). [AGENTS.md](AGENTS.md) has the rules for changing the project.
+
 ```sh
 node web.js        # backend on :4747
 npm run dev        # Vite dev server on :5173, proxying /api
