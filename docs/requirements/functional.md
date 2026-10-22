@@ -115,7 +115,7 @@ Anyone can install and use the app without needing a private checkout or asking 
 The user can reorder the list to match whatever they want to work on next.
 
 **Acceptance criteria**
-- The list can be sorted by priority, highest first.
+- The list can be sorted by priority, highest first, in the order `critical`, `high`, `medium`, `low`.
 - The list can be sorted by how long an item has been parked, longest waiting first.
 - The chosen sort applies to every row and survives while the page is open.
 - The default order is: items ready to continue first, then by priority, then longest parked first.
@@ -138,17 +138,22 @@ The user can see an item's full detail without losing their place in the list.
 
 ---
 
-## FR-10 Priority assessed by the agent
+## FR-10 Priority, assessed by the agent and editable by the user
 
-Priority is judged by the agent that parks the work, so the user does not have to triage items by hand.
+Priority is judged first by the agent that parks the work, so the user does not have to triage items by
+hand, and the user can override it whenever their own judgement differs.
 
 **Acceptance criteria**
-- Recording work accepts a priority of high, medium or low.
+- Priority has four levels, from highest to lowest: `critical`, `high`, `medium`, `low`.
 - Priority is self-assessed from the context of the work at the moment it is parked; the user is not asked.
-- When no priority is supplied, the item is recorded as medium rather than rejected.
+- When no priority is supplied, the item is recorded as `medium` rather than rejected.
+- The user can change an item's priority at any time, from the list or from the expanded row.
+- A user's change persists: it survives a page reload, a dashboard restart and an update.
+- Changing priority never changes an item's readiness or what it is waiting on.
 - Priority is shown in the list and drives the default ordering (FR-8).
 
-**Verified by:** `parked.test.js` (`mcp:` tests for accepted and rejected values), ordering tests.
+**Verified by:** `parked.test.js` (`mcp:` tests for accepted and rejected values; `web:` tests for the
+update), ordering tests.
 
 ---
 
@@ -163,4 +168,4 @@ Explicitly out of scope. Adding any of these is a product decision, not an imple
 - Watching dependencies other than GitHub pull requests (deployments, health checks, tickets).
 - Push notifications or a menu-bar presence.
 - Retaining completed work as history or reporting.
-- Editing an item's priority or other fields by hand; priority is set once, by the agent that parked the work.
+- Editing fields other than priority by hand: the title, what is awaited, the next steps and the resume context are set once, by the agent that parked the work.
