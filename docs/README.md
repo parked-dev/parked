@@ -7,6 +7,7 @@ Three kinds of document, deliberately separate:
 | [requirements/functional.md](requirements/functional.md) | What can a user do? | A capability is added, removed or redefined |
 | [requirements/non-functional.md](requirements/non-functional.md) | What must stay true? | A quality bar, constraint or supported platform changes |
 | [architecture.md](architecture.md) | How is it built today? | Modules, storage, transports or controls change |
+| [adr/](adr/) | Why was a decision made this way? | A decision is taken, superseded or reversed |
 
 [AGENTS.md](../AGENTS.md) holds the working rules: how to test, what may not be weakened, and what CI expects.
 

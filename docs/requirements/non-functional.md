@@ -103,6 +103,7 @@ The dashboard feels immediate on a laptop.
 
 - The first useful paint is under 2 seconds on a warm local machine.
 - Local API responses complete in well under 50 ms.
+- The list stays smooth with at least 200 items: sorting and expanding do not cause a noticeable pause.
 - Polling is cheap: the browser polls only while the tab is visible, and GitHub is checked at most every two minutes per item.
 - The shipped UI bundle stays at or below 150 KB gzipped; it is currently around 98 KB.
 
